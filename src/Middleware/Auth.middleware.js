@@ -1,16 +1,10 @@
-// const userModel = require("../Models/user.Model"); // M capital rakhein
-// const jwt = require("jsonwebtoken"); // Spelling sahi karein
-// const tokenBlackListModel = require("../Models/blackList.model"); // model.js add karein
+
 
  const userModel = require("../Models/user.Model"); // M capital as per Explorer
 const jwt = require("jsonwebtoken");
 const tokenBlackListModel = require("../Models/blacklist.model"); // Match sidebar exactly
 
-// const userModel = require("../models/user.model")
-// const jwt = require("jsonwebtoken")
-// //const tokenBlackListModel = require("../Models/blackList.model")
-// //const tokenBlackListModel = require("../Models/blackList.js");
-// const tokenBlackListModel = require("../Models/blackList.model");
+
 
 async function authMiddleware(req, res, next) {
 

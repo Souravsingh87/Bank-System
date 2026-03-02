@@ -2,10 +2,7 @@ const transactionModel = require("../Models/transaction.model");
 const ledgerModel = require("../Models/ledger.model");
 const accountModel = require("../Models/Account.model");
 const emailService = require("../Services/email.service");
-// const transactionModel = require("../models/transaction.model")
-// const ledgerModel = require("../models/ledger.model")
-// const accountModel = require("../models/account.model")
-// const emailService = require("../services/email.service")
+
 const mongoose = require("mongoose")
 
 

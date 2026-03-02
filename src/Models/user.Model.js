@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema ({
     },
     name:{
         type:String,
-        required:[true,"name is required for creating an account"]
+        required:[true,"Name is required for creating an account"]
     },
 
  password:{
@@ -35,11 +35,11 @@ const userSchema = new mongoose.Schema ({
 })
 userSchema.pre("save",async function(){ // save hone se pehle ye function chalega, isme hum password ko hash karenge
     if(!this.isModified("password")){ // agar password modify nahi hua hai to next() call kar dega, isse password ko baar baar hash hone se bachayega
-        return ; // hash karne kliye npm i bcryptjs ka use karenge, isse hum password ko securely hash kar sakte hain
+        return next() ; // hash karne kliye npm i bcryptjs ka use karenge, isse hum password ko securely hash kar sakte hain
     }
     const hash = await bcrypt.hash(this.password,10); // password ko hash karne ke liye bcrypt ka use karenge, 10 salt rounds denge
     this.password = hash; // password ko hash karke wapas userSchema ke password field me daal denge
-     return ; // next() call kar denge, isse save hone ka process continue ho jayega
+     return next() ; // next() call kar denge, isse save hone ka process continue ho jayega
 })
 userSchema.methods.comparePassword =  async function(password){ // ye method user instance pe call hoga, isme hum plain text password ko hashed password se compare karenge
     return await bcrypt.compare(password,this.password); // bcrypt ka compare method use karenge, jo plain text password aur hashed password ko compare karega
